@@ -202,7 +202,7 @@ This task consists of one sub-task:
 The function implements Eqn. 3 in the paper which defines a pixel color as a weighted sum of radiance values collected along a ray:
 
 ```math
-\hat{C} \left( r \right) = \sum_{i=1}^T T_i \left( 1 - \exp \left( -\sigma_i \delta_i \right) \right) \mathbf{c}_i,
+\hat{C} \left( r \right) = \sum_{i=1}^N T_i \left( 1 - \exp \left( -\sigma_i \delta_i \right) \right) \mathbf{c}_i,
 ```
 where 
 ```math
