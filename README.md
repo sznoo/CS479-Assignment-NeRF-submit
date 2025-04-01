@@ -246,7 +246,7 @@ Instead of using the provided dataset, capture your surrounding environment and 
 
 ## What to Submit
 
-Compile the following files as a **ZIP** file named `{STUDENT_ID}.zip` and submit the file via Gradescope.
+Compile the following files as a **ZIP** file named `{STUDENT_ID}.zip` and submit the file via KLMS.
   
 - The folder `torch_nerf` that contains every source code file;
 - A folder named `{STUDENT_ID}_renderings` containing the renderings (`.png` files) from the **test views** used for computing evaluation metrics;
