@@ -158,7 +158,7 @@ Implement the MLP displayed above. The network consists of:
 2. Nine fully-connected layers (including the one for skip connection);
 3. One output fully-connected layer.
 
-All hidden layers are followed by ReLU activation, and the density and the RGB head at the output layer are followed by ReLU and sigmoid activations, respectively.
+All hidden layers are followed by nonlinear activations (e.g., ReLU, SoftPlus), and the density and the RGB head at the output layer are followed by ReLU and sigmoid activations, respectively.
 For more details, please refer to Sec. A of the paper's supplementary material.
 
 > :bulb: We highly recommend you to look up [the official documentation](https://pytorch.org/docs/stable/nn.html) of the layers used in the network.
