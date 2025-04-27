@@ -65,8 +65,25 @@ class StratifiedSampler(RaySamplerBase):
 
         # TODO
         # HINT: Freely use the provided methods 'create_t_bins' and 'map_t_to_euclidean'
-        raise NotImplementedError("Task 2")
+        torch.cuda.empty_cache()
+        batch_size, _ = ray_bundle.origins.shape
+        device = ray_bundle.origins.device
 
+        samples_local = torch.rand((batch_size, num_sample))
+        bins = self.create_t_bins(num_sample + 1, samples_local.device)[:-1]
+        bins_t = (
+            bins.unsqueeze(0)
+            .repeat(batch_size, 1)
+            .reshape(-1)
+            .view(batch_size, num_sample)
+        )
+        samples = samples_local * (1 / num_sample) + bins_t
+
+        r_f0 = ray_bundle.fars[0].item()
+        r_n0 = ray_bundle.nears[0].item()
+        t_samples = self.map_t_to_euclidean(samples, r_n0, r_f0).to(device)
+
+        return t_samples
     @jaxtyped
     @typechecked
     def sample_along_rays_importance(
